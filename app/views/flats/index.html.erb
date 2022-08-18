@@ -1,0 +1,44 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <h1>All our Flats</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+        <p>All <%= @flats.count %>  flats.</p>
+    </div>
+  </div>
+
+  <div class="row">
+        <% @flats.each do |flat| %>
+        <div class="col-md-4">
+        <div class="flat-card">
+          <div class="flat-card-image" style="background-image: url('https://images.unsplash.com/photo-1444419988131-046ed4e5ffd6?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80')"></div>
+          <div class="flat-card-content">
+            <div class="flat-card-title">
+              <h4><%= flat.name %> </h4>
+            </div>
+            <p><%= flat.address %></p>
+            <div class="flex">
+              <div class="flex align-items-center">
+                <i class="fa-solid fa-people-line"></i>
+                <span><%= flat.number_of_guests %></span>
+              </div>
+              <div class="flex align-items-center ms-3">
+                <i class="fa-solid fa-euro-sign"></i>
+                <span><%= flat.price_per_night %></span>
+              </div>
+            </div>
+          </div>
+          <div class="flat-card-actions">
+            <%= link_to 'More info', '#', class: 'ms-3 text-primary' %>
+            <%= link_to 'Edit', '#', class: 'ms-3 text-warning' %>
+            <%= link_to 'Remove', '#', class: 'ms-3 text-danger' %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+  </div>
+</div>
